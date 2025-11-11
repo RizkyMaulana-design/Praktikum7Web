@@ -402,29 +402,5 @@ Proyek ini bersifat **open-source** dan boleh digunakan untuk pembelajaran atau 
 
 ---
 
-📄 *Disusun oleh: Rizky Maulana – 312410430 (TI.24.A.3)*
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+##  **Hasil output nya :**
 
