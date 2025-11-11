@@ -125,8 +125,286 @@ Menambahkan variable pada program
 ![WhatsApp Image 2025-11-12 at 01 25 09](https://github.com/user-attachments/assets/99a6f4b3-fd16-4bd7-8130-281f7c47d176)
 
 # TUGAS
+---
 
-Berikut program PHP sederhana, menggunakan form input untuk nama, tanggal lahir, dan pekerjaan, lalu menampilkan umur dan gaji berdasarkan pilihan pekerjaan:
+````markdown
+# 💻 **Laporan Tugas Pemrograman Web Dasar**
+
+## 🧾 **Form Input Data – Rizky Maulana**
+
+---
+
+## 👨‍🎓 **Identitas Mahasiswa**
+
+| Keterangan               | Data                                                |
+| ------------------------ | --------------------------------------------------- |
+| **Nama**                 | Rizky Maulana                                       |
+| **NIM**                  | 312410430                                           |
+| **Kelas**                | TI.24.A.3                                           |
+| **Mata Kuliah**          | Pemrograman Web Dasar                               |
+| **Dosen Pengampu**       | -                                                   |
+| **Nama File**            | `tugas.php`                                         |
+| **Lokasi Folder**        | `C:\xampp\htdocs\lab7_php_dasar\`                   |
+| **URL Akses di Browser** | `http://localhost/lab7_php_dasar/tugas.php`         |
+
+---
+
+## 📘 **Deskripsi Singkat**
+
+Program ini dibuat menggunakan **HTML**, **CSS**, dan **PHP** untuk menampilkan form input data pengguna yang berisi:
+
+* Nama  
+* Tanggal Lahir  
+* Pekerjaan  
+
+Setelah pengguna mengisi dan mengirimkan data, program akan:
+
+1. Menghitung **umur otomatis** dari tanggal lahir.  
+2. Menentukan **gaji berdasarkan pekerjaan**.  
+3. Menampilkan **hasil data langsung di halaman web**.
+
+Tampilan program menggunakan desain **modern (glassmorphism)** agar terlihat menarik dan profesional.
+
+---
+
+## 🧱 **Kode Program Lengkap dengan Penjelasan**
+
+### 🔹 Bagian 1 – Struktur Dasar HTML dan Desain CSS
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Rizky Maulana</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+````
+
+💬 **Penjelasan:**
+
+* Mengatur tampilan dasar halaman web.
+* `linear-gradient()` memberi efek warna biru gelap ke biru muda.
+* `display: flex` dan `align-items: center` digunakan agar konten berada di tengah halaman.
+
+---
+
+```html
+        form {
+            background: rgba(255,255,255,0.08);
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            width: 320px;
+            backdrop-filter: blur(6px);
+        }
+
+        input[type="submit"] {
+            background-color: #00c6ff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0094cc;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Input Data</h2>
+```
+
+💬 **Penjelasan:**
+
+* Form diberi efek transparan (`rgba`) dengan blur lembut.
+* Tombol `Submit` memiliki efek hover agar lebih interaktif.
+
+---
+
+### 🔹 Bagian 2 – Form Input Data
+
+```html
+    <form method="post">
+        Nama: <br>
+        <input type="text" name="nama" required><br>
+
+        Tanggal Lahir: <br>
+        <input type="date" name="tgl" required><br>
+
+        Pekerjaan: <br>
+        <select name="pekerjaan" required>
+            <option value="Programmer">Programmer</option>
+            <option value="Desainer">Desainer</option>
+            <option value="Manager">Manager</option>
+            <option value="Operator">Operator</option>
+        </select><br>
+
+        <input type="submit" value="Tampilkan">
+    </form>
+```
+
+💬 **Penjelasan:**
+
+* Form berisi tiga input utama: **nama**, **tanggal lahir**, dan **pekerjaan**.
+* `method="post"` digunakan agar data dikirim tanpa muncul di URL.
+* Dropdown pekerjaan berisi empat pilihan utama.
+
+---
+
+### 🔹 Bagian 3 – Logika PHP untuk Pemrosesan Data
+
+```php
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $nama = $_POST['nama'];
+        $tgl = $_POST['tgl'];
+        $pekerjaan = $_POST['pekerjaan'];
+
+        // Hitung umur
+        $lahir = new DateTime($tgl);
+        $sekarang = new DateTime();
+        $umur = $sekarang->diff($lahir)->y;
+```
+
+💬 **Penjelasan:**
+
+* Mengecek apakah form sudah dikirim (`POST`).
+* Data dari form disimpan ke variabel `$nama`, `$tgl`, dan `$pekerjaan`.
+* Menggunakan `DateTime()` untuk menghitung **umur otomatis**.
+
+---
+
+### 🔹 Bagian 4 – Logika Penentuan Gaji
+
+```php
+        // Tentukan gaji berdasarkan pekerjaan
+        switch ($pekerjaan) {
+            case "Programmer": $gaji = 7000000; break;
+            case "Desainer":   $gaji = 5000000; break;
+            case "Manager":    $gaji = 12000000; break;
+            case "Operator":   $gaji = 4000000; break;
+            default: $gaji = 0;
+        }
+```
+
+💬 **Penjelasan:**
+
+* Struktur `switch-case` digunakan agar setiap pekerjaan memiliki gaji yang berbeda.
+* Jika tidak ada kecocokan, nilai default `0` digunakan.
+
+---
+
+### 🔹 Bagian 5 – Menampilkan Hasil Output
+
+```php
+        echo '<div class="output">';
+        echo "<h3>Hasil Output:</h3>";
+        echo "Nama: <span>$nama</span><br>";
+        echo "Tanggal Lahir: <span>$tgl</span><br>";
+        echo "Umur: <span>$umur tahun</span><br>";
+        echo "Pekerjaan: <span>$pekerjaan</span><br>";
+        echo "Gaji: <span>Rp " . number_format($gaji, 0, ',', '.') . "</span>";
+        echo '</div>';
+    }
+    ?>
+</body>
+</html>
+```
+
+💬 **Penjelasan:**
+
+* Menampilkan hasil input dan perhitungan di halaman yang sama.
+* Fungsi `number_format()` membuat tampilan gaji menjadi rapi (contoh: `Rp 7.000.000`).
+
+---
+
+## 💰 **Tabel Gaji Berdasarkan Pekerjaan**
+
+| Pekerjaan  | Gaji (Rp)  |
+| ---------- | ---------- |
+| Programmer | 7.000.000  |
+| Desainer   | 5.000.000  |
+| Manager    | 12.000.000 |
+| Operator   | 4.000.000  |
+
+---
+
+## 🧮 **Contoh Kasus**
+
+### 📥 Input
+
+| Kolom         | Isi              |
+| :------------ | :--------------- |
+| Nama          | Rizky Maulana    |
+| Tanggal Lahir | 27 Februari 2005 |
+| Pekerjaan     | Programmer       |
+
+### ⚙️ Proses PHP
+
+```php
+$lahir = new DateTime("2005-02-27");
+$sekarang = new DateTime();
+$umur = $sekarang->diff($lahir)->y; // hasil: 20 tahun
+
+$pekerjaan = "Programmer";
+$gaji = 7000000;
+```
+
+### 📊 Output di Browser
+
+```
+Nama: Rizky Maulana
+Tanggal Lahir: 2005-02-27
+Umur: 20 tahun
+Pekerjaan: Programmer
+Gaji: Rp 7.000.000
+```
+
+---
+
+## 💡 **Kesimpulan**
+
+* Program berhasil menampilkan **data, umur, dan gaji otomatis** berdasarkan input.
+* Menggunakan **HTML (struktur)**, **CSS (tampilan)**, dan **PHP (logika server)**.
+* Dapat dijalankan langsung di **XAMPP menggunakan URL localhost**.
+
+---
+
+## 🧠 **Teknologi yang Digunakan**
+
+* **HTML5** → Struktur halaman web
+* **CSS3** → Desain modern dan responsif
+* **PHP 7+** → Pemrosesan data dan logika server
+
+---
+
+## 🪪 **Lisensi**
+
+Proyek ini bersifat **open-source** dan boleh digunakan untuk pembelajaran atau pengembangan pribadi.
+
+---
+
+📄 *Disusun oleh: Rizky Maulana – 312410430 (TI.24.A.3)*
+
+```
 
 
 
