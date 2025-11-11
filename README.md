@@ -51,3 +51,10 @@ Menambahkan variable pada program
 **Outputnya:**
 
 ![WhatsApp Image 2025-11-12 at 00 20 28](https://github.com/user-attachments/assets/4c152392-5696-4641-b2f6-4987cd542f81)
+
+### Membuat Form Input
+
+**Code:**
+
+<img width="1018" height="596" alt="vscode5" src="https://github.com/user-attachments/assets/f2a163f9-7e6e-413e-a5d2-3d08848756d3" />
+
