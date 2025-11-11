@@ -276,4 +276,3 @@ Proyek ini bersifat **open-source**, dapat digunakan untuk keperluan pembelajara
 
 ---
 
-Apakah kamu mau saya buatkan **file .md siap unduh** versi rapi ini (seperti di atas) biar bisa langsung kamu upload atau print untuk dikumpulkan?
