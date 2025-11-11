@@ -404,3 +404,6 @@ Proyek ini bersifat **open-source** dan boleh digunakan untuk pembelajaran atau 
 
 ##  **Hasil output nya :**
 
+![screen shoot output (1)](https://github.com/user-attachments/assets/eedaf28a-fb1d-49c3-9edd-72d9ba5f9549)
+
+
