@@ -1,111 +1,258 @@
-# 💻 Proyek Form Input Data – Rizky Maulana
+Siap banget 🔥
+Berarti kamu mau README-nya **kayak laporan tugas kuliah yang lengkap dan rapi**, berisi:
+✅ Identitas mahasiswa di atas,
+✅ Penjelasan program per bagian,
+✅ Codingan langsung disertai penjelasannya,
+✅ Contoh hasil output,
+✅ Tertata rapi seperti laporan resmi tapi tetap cocok buat GitHub.
 
-## 📘 Deskripsi Proyek
-Proyek ini merupakan aplikasi web sederhana berbasis **HTML**, **CSS**, dan **PHP** yang digunakan untuk menginput data pribadi, menghitung **umur otomatis**, serta menampilkan **gaji sesuai pekerjaan** yang dipilih.
-
-Didesain dengan tampilan **modern bergaya glassmorphism**, proyek ini cocok digunakan sebagai contoh tugas mata kuliah **Pemrograman Web Dasar**.
-
----
-
-## 🧩 Fitur Utama
-- 📝 Form input data (Nama, Tanggal Lahir, dan Pekerjaan)
-- 🧮 Perhitungan otomatis umur berdasarkan tanggal lahir
-- 💰 Penentuan gaji berdasarkan jenis pekerjaan
-- 🎨 Tampilan modern dengan efek transparan dan gradasi
-- ⚡ Responsif dan ringan dijalankan
+Berikut versi **final dan lengkapnya** 👇
 
 ---
 
-## ⚙️ Cara Menjalankan Program
-1. Pastikan kamu sudah menginstal **XAMPP** atau **Laragon**.  
-2. Simpan file `index.php` ke dalam folder berikut:
-   ```
-   C:\xampp\htdocs\form-rizky-maulana\
-   ```
-3. Jalankan **Apache** melalui XAMPP Control Panel.  
-4. Buka browser dan ketik URL berikut:
-   ```
-   http://localhost/form-rizky-maulana/
-   ```
+# 💻 **Laporan Tugas Pemrograman Web Dasar**
+
+## 🧾 **Form Input Data – Rizky Maulana**
 
 ---
 
-## 📂 Struktur Folder
+## 👨‍🎓 **Identitas Mahasiswa**
+
+| Keterangan               | Data                                                |
+| ------------------------ | --------------------------------------------------- |
+| **Nama**                 | Rizky Maulana                                       |
+| **NIM**                  | 312410430                                           |
+| **Kelas**                | TI.24.A.4                                           |
+| **Mata Kuliah**          | Pemrograman Web Dasar                               |
+| **Dosen Pengampu**       | -                                                   |
+| **Nama File**            | `latihan_dasar.php`                                 |
+| **Lokasi Folder**        | `C:\xampp\htdocs\lab7_php_dasar\`                   |
+| **URL Akses di Browser** | `http://localhost/lab7_php_dasar/latihan_dasar.php` |
+
+---
+
+## 📘 **Deskripsi Singkat**
+
+Program ini dibuat menggunakan **HTML**, **CSS**, dan **PHP** untuk menampilkan form input data pengguna yang berisi:
+
+* Nama
+* Tanggal Lahir
+* Pekerjaan
+
+Setelah pengguna mengisi dan mengirimkan data, program akan:
+
+1. Menghitung umur otomatis dari tanggal lahir.
+2. Menentukan gaji berdasarkan pekerjaan.
+3. Menampilkan hasil data secara langsung di halaman web.
+
+Tampilan program menggunakan desain **modern (glassmorphism)** agar terlihat menarik dan profesional.
+
+---
+
+## 🧱 **Kode Program Lengkap dengan Penjelasan**
+
+### 🔹 Bagian 1 – Struktur Dasar HTML dan Desain CSS
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Rizky Maulana</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
 ```
-📁 form-rizky-maulana
-│
-├── index.php      # File utama berisi form dan logika PHP
-├── README.md      # Dokumentasi proyek (file ini)
+
+💬 **Penjelasan:**
+
+* `font-family: 'Poppins'` → Menggunakan font modern.
+* `background: linear-gradient()` → Memberi efek gradasi biru gelap.
+* `display: flex` → Menata elemen agar terpusat di layar.
+
+---
+
+```html
+        form {
+            background: rgba(255,255,255,0.08);
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            width: 320px;
+            backdrop-filter: blur(6px);
+        }
+
+        input[type="submit"] {
+            background-color: #00c6ff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0094cc;
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+    <h2>Form Input Data</h2>
 ```
 
----
+💬 **Penjelasan:**
 
-## 🧱 Penjelasan Kode
-
-### 1️⃣ HTML – Struktur Form
-Bagian ini membuat form untuk input:
-- Nama
-- Tanggal Lahir
-- Pekerjaan (dropdown)
-
-Form menggunakan metode `POST` agar data tidak tampil di URL.
-
-### 2️⃣ CSS – Tampilan
-Bagian CSS memberikan efek **modern dan transparan** dengan:
-- Gradasi biru ke abu gelap
-- Sudut membulat dan bayangan lembut
-- Efek hover pada tombol kirim
-- Font *Poppins* untuk tampilan profesional
-
-### 3️⃣ PHP – Logika Program
-Bagian PHP memproses data dari form:
-- Mengecek apakah form dikirim (`if ($_SERVER["REQUEST_METHOD"] == "POST")`)
-- Mengambil data menggunakan `$_POST`
-- Menghitung umur menggunakan objek `DateTime`
-- Menentukan gaji berdasarkan pekerjaan menggunakan `switch-case`
-- Menampilkan hasil langsung di halaman
+* Form dibuat transparan dengan efek blur.
+* Tombol `Submit` memiliki animasi hover dan warna biru cerah.
 
 ---
 
-## 💰 Rincian Gaji Berdasarkan Pekerjaan
+### 🔹 Bagian 2 – Form Input Data
 
-| Pekerjaan   | Gaji (Rp)   |
-|--------------|-------------|
-| Programmer   | 7.000.000   |
-| Desainer     | 5.000.000   |
-| Manager      | 12.000.000  |
-| Operator     | 4.000.000   |
+```html
+    <form method="post">
+        Nama: <br>
+        <input type="text" name="nama" required><br>
+
+        Tanggal Lahir: <br>
+        <input type="date" name="tgl" required><br>
+
+        Pekerjaan: <br>
+        <select name="pekerjaan" required>
+            <option value="Programmer">Programmer</option>
+            <option value="Desainer">Desainer</option>
+            <option value="Manager">Manager</option>
+            <option value="Operator">Operator</option>
+        </select><br>
+
+        <input type="submit" value="Tampilkan">
+    </form>
+```
+
+💬 **Penjelasan:**
+
+* Menggunakan metode `POST` agar data dikirim secara tersembunyi.
+* Field input:
+
+  * `nama` untuk nama lengkap.
+  * `tgl` untuk tanggal lahir.
+  * `pekerjaan` sebagai dropdown.
 
 ---
 
-## 🧮 Contoh Kasus dan Hasil Output
+### 🔹 Bagian 3 – Logika PHP untuk Pemrosesan Data
 
-### 📥 Input Data
-| Kolom | Isi |
-|:------|:----|
-| Nama | Rizky Maulana |
+```php
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $nama = $_POST['nama'];
+        $tgl = $_POST['tgl'];
+        $pekerjaan = $_POST['pekerjaan'];
+
+        // Hitung umur
+        $lahir = new DateTime($tgl);
+        $sekarang = new DateTime();
+        $umur = $sekarang->diff($lahir)->y;
+```
+
+💬 **Penjelasan:**
+
+* `$_SERVER["REQUEST_METHOD"] == "POST"` memastikan kode berjalan hanya saat form dikirim.
+* `DateTime` digunakan untuk menghitung umur otomatis dari tanggal lahir.
+
+---
+
+### 🔹 Bagian 4 – Logika Penentuan Gaji
+
+```php
+        // Tentukan gaji berdasarkan pekerjaan
+        switch ($pekerjaan) {
+            case "Programmer": $gaji = 7000000; break;
+            case "Desainer":   $gaji = 5000000; break;
+            case "Manager":    $gaji = 12000000; break;
+            case "Operator":   $gaji = 4000000; break;
+            default: $gaji = 0;
+        }
+```
+
+💬 **Penjelasan:**
+
+* Menggunakan `switch-case` agar setiap pekerjaan memiliki gaji tetap.
+
+---
+
+### 🔹 Bagian 5 – Menampilkan Hasil Output
+
+```php
+        echo '<div class="output">';
+        echo "<h3>Hasil Output:</h3>";
+        echo "Nama: <span>$nama</span><br>";
+        echo "Tanggal Lahir: <span>$tgl</span><br>";
+        echo "Umur: <span>$umur tahun</span><br>";
+        echo "Pekerjaan: <span>$pekerjaan</span><br>";
+        echo "Gaji: <span>Rp " . number_format($gaji, 0, ',', '.') . "</span>";
+        echo '</div>';
+    }
+    ?>
+</body>
+</html>
+```
+
+💬 **Penjelasan:**
+
+* Menampilkan hasil dalam kotak `div` dengan efek transparan.
+* `number_format()` digunakan agar gaji tampil rapi (contoh: `Rp 7.000.000`).
+
+---
+
+## 💰 **Tabel Gaji Berdasarkan Pekerjaan**
+
+| Pekerjaan  | Gaji (Rp)  |
+| ---------- | ---------- |
+| Programmer | 7.000.000  |
+| Desainer   | 5.000.000  |
+| Manager    | 12.000.000 |
+| Operator   | 4.000.000  |
+
+---
+
+## 🧮 **Contoh Kasus**
+
+### 📥 Input
+
+| Kolom         | Isi              |
+| :------------ | :--------------- |
+| Nama          | Rizky Maulana    |
 | Tanggal Lahir | 27 Februari 2005 |
-| Pekerjaan | Programmer |
+| Pekerjaan     | Programmer       |
 
 ### ⚙️ Proses PHP
+
 ```php
-$nama = "Rizky Maulana";
-$tgl = "2005-02-27";
-$pekerjaan = "Programmer";
-
-$lahir = new DateTime($tgl);
+$lahir = new DateTime("2005-02-27");
 $sekarang = new DateTime();
-$umur = $sekarang->diff($lahir)->y;
+$umur = $sekarang->diff($lahir)->y; // hasilnya 20 tahun (2025)
 
-switch ($pekerjaan) {
-    case "Programmer": $gaji = 7000000; break;
-    case "Desainer":   $gaji = 5000000; break;
-    case "Manager":    $gaji = 12000000; break;
-    case "Operator":   $gaji = 4000000; break;
-}
+$pekerjaan = "Programmer";
+$gaji = 7000000;
 ```
 
-### 📊 Hasil Output (Tahun 2025)
+### 📊 Hasil Output di Browser
+
 ```
 Nama: Rizky Maulana
 Tanggal Lahir: 2005-02-27
@@ -114,26 +261,28 @@ Pekerjaan: Programmer
 Gaji: Rp 7.000.000
 ```
 
-### 💬 Penjelasan
-- Umur dihitung berdasarkan selisih tahun antara **tanggal sekarang (2025)** dan **tanggal lahir (2005)**, hasilnya **20 tahun**.  
-- Karena pekerjaan dipilih sebagai **Programmer**, maka gaji otomatis ditentukan sebesar **Rp 7.000.000**.
+---
+
+## 💡 **Kesimpulan**
+
+* Program ini berhasil menampilkan data pengguna dengan **umur dan gaji otomatis**.
+* Menggunakan kombinasi **HTML (struktur)**, **CSS (tampilan)**, dan **PHP (logika server)**.
+* Hasilnya interaktif dan berjalan langsung di **localhost (XAMPP)**.
 
 ---
 
-## 💡 Teknologi yang Digunakan
-- **HTML5** → Struktur halaman web  
-- **CSS3** → Desain dan tampilan modern  
-- **PHP 7+** → Pemrosesan data dan logika server  
+## 🧠 **Teknologi yang Digunakan**
+
+* **HTML5** → Struktur halaman web
+* **CSS3** → Tampilan dan efek modern
+* **PHP 7+** → Pemrosesan data dan perhitungan
 
 ---
 
-## 👨‍💻 Identitas Pembuat
-**Nama:** Rizky Maulana  
-**NIM:** 312410430  
-**Kelas:** TI.24.A.4  
-**Mata Kuliah:** Pemrograman Web  
+## 🪪 **Lisensi**
+
+Proyek ini bersifat **open-source**, dapat digunakan untuk keperluan pembelajaran dan pengembangan pribadi.
 
 ---
 
-## 🪪 Lisensi
-Proyek ini bersifat **open-source**, bebas digunakan untuk keperluan pembelajaran, praktikum, atau pengembangan pribadi.
+Apakah kamu mau saya buatkan **file .md siap unduh** versi rapi ini (seperti di atas) biar bisa langsung kamu upload atau print untuk dikumpulkan?
