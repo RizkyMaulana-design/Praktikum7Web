@@ -1,12 +1,3 @@
-Siap banget 🔥
-Berarti kamu mau README-nya **kayak laporan tugas kuliah yang lengkap dan rapi**, berisi:
-✅ Identitas mahasiswa di atas,
-✅ Penjelasan program per bagian,
-✅ Codingan langsung disertai penjelasannya,
-✅ Contoh hasil output,
-✅ Tertata rapi seperti laporan resmi tapi tetap cocok buat GitHub.
-
-Berikut versi **final dan lengkapnya** 👇
 
 ---
 
@@ -22,7 +13,7 @@ Berikut versi **final dan lengkapnya** 👇
 | ------------------------ | --------------------------------------------------- |
 | **Nama**                 | Rizky Maulana                                       |
 | **NIM**                  | 312410430                                           |
-| **Kelas**                | TI.24.A.4                                           |
+| **Kelas**                | TI.24.A.3                                           |
 | **Mata Kuliah**          | Pemrograman Web Dasar                               |
 | **Dosen Pengampu**       | -                                                   |
 | **Nama File**            | `latihan_dasar.php`                                 |
